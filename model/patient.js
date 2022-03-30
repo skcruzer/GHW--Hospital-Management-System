@@ -21,18 +21,22 @@ Patient.init({
   pcp_contact: DataTypes.INTEGER,  
   insurance: DataTypes.STRING,
 
-  //need to tie this w med history table
-  //will grab all the med histories that references to this patient's id
+  //make references to medicalhistory model
   medical_history: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    references: {
+      model: 'medicalhistory',
+      key: 'patient_id'
+    }
   },
 
-  //need to tie this w appt table
-  //will grab all the appts that references to this patient's id
+  //make references to appt model
   appointments: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    references: {
+      model: 'Appointments',
+      key: 'patient_id'
+    }
   }
   
 }, { sequelize, timestamps: false, modelName: 'patient' })
