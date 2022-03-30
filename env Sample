@@ -1,0 +1,1 @@
+LOCAL_URL=mysql://username:password@localhost:3306/hsm_db
