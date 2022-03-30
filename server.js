@@ -9,7 +9,7 @@ app.use(express.static(join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.use(require('./controllers'))
+app.use(require('./controller'))
 
 async function init() {
   await require("./config/connection").sync();
