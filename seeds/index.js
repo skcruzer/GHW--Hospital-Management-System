@@ -7,7 +7,7 @@ const seedAll = async () => {
   console.log('\n----- DATABASE SYNCED -----\n')
   await seedEmployees()
   console.log('\n----- EMPLOYEE SEEDED -----\n')
-
+  
   process.exit(0)
 }
 
