@@ -50,10 +50,13 @@ Patient.init({
     type: DataTypes.STRING,
     allowNull: false
   },
+  //need to tie this w med history table
   medical_history: {
     type: DataTypes.STRING,
     allowNull: false
   },
+
+  //need to tie this w appt table
   appointments: {
     type: DataTypes.STRING,
     allowNull: false
