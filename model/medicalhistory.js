@@ -7,10 +7,13 @@ class MedicalHistory extends Model { }
 MedicalHistory.init({
     patient_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        references: {
+            model: 'patients',
+            key: 'id'
+        }
     },
     year: {
-        type: DataTypes.TIMESTAMP,
+        type: DataTypes.DATE,
         allowNull: false
     },
     condition: {
@@ -25,8 +28,12 @@ MedicalHistory.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    
+},
+    {
     sequelize,
-    modelName: 'medicalhistory'
-})
+    modelName: 'medicalhistories'    
+    }
+)
 
 module.exports = MedicalHistory

@@ -25,7 +25,7 @@ Patient.init({
   medical_history: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'medicalhistory',
+      model: 'medicalhistories',
       key: 'patient_id'
     }
   },
@@ -34,7 +34,7 @@ Patient.init({
   appointments: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'Appointments',
+      model: 'appointments',
       key: 'patient_id'
     }
   }

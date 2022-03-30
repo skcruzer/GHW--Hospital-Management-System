@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../config')
+const sequelize = require('../config/connection')
 
 class EmpSched extends Model { } 
 
@@ -7,22 +7,22 @@ EmpSched.init({
   employee_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'employee',
+      model: 'employees',
       key: 'id'
     }
   },
   start_time: {
-    type: DataTypes.DATETIME,
+    type: DataTypes.TIME,
     allowNull: false
   },
   end_time: {
-    type: DataTypes.DATETIME,
+    type: DataTypes.TIME,
     allowNull: false
   },
   patient_list: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'Patient',
+      model: 'patients',
       key: 'id'
     }
   },
@@ -30,7 +30,7 @@ EmpSched.init({
   {
     sequelize,
     timestamps: false,
-    modelName: 'EmpSched'
+    modelName: 'empScheds'
   } 
 )
 
