@@ -1,5 +1,11 @@
 // refer to appointment id! 
 
+const { Model, DataTypes } = require('sequelize')
+const sequelize = require('../config/connection')
+
+class Diagnose extends Model { }
+
+
 Diagnose.init({
     doc_id: {
         type: DataTypes.INTEGER,
@@ -24,5 +30,9 @@ Diagnose.init({
     prescribed_meds: {
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },
+    sequelize,
+    modelName: 'diagnose'
 })
+
+module.exports = Diagnose
