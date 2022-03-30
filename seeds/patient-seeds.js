@@ -1,40 +1,23 @@
-const { Employee } = require('../model')
+const { Patient } = require('../model')
 
-const employeesData = [
+const patientsData = [
   {
-    name: "Kien Hoang",
-    sex: "male",
+    first_name: "Helen"
+    last_name: "Kim",
+    sex: "female",
     dob: 20111127,
     mobile: "123456789",
-    email: "test@gmail.com",
-    salary: 100000
+    email: "helen@gmail.com",
+    address: "23 Oak Dr., La Habra, CA"
+    primary_care_physician: "Dr. Sims"
+    pcp_contact: "123456970"
+    insurance: "Anthem Blue Cross"
+    medical_history: 
+    appointments: 
   },
-  {
-    name: "Sean Cruz",
-    sex: "male",
-    dob: 20111127,
-    mobile: "123456789",
-    email: "test@gmail.com",
-    salary: 100000
-  },
-  {
-    name: "Hye Won Park ",
-    sex: "male",
-    dob: 20111127,
-    mobile: "123456789",
-    email: "test@gmail.com",
-    salary: 100000
-  },
-  {
-    name: "Brendon Sanfer",
-    sex: "male",
-    dob: 20111127,
-    mobile: "123456789",
-    email: "test@gmail.com",
-    salary: 100000
-  }
+  
 ]
 
-const seedEmployees = () => Employee.bulkCreate(employeesData)
+const seedPatients = () => Patient.bulkCreate(patientsData)
 
-module.exports = seedEmployees
+module.exports = seedPatients
