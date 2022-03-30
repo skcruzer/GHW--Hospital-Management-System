@@ -13,7 +13,7 @@ Patient.init({
   first_name: DataTypes.STRING,
   last_name: DataTypes.STRING,
   sex: DataTypes.STRING,
-  dob: DataTypes.DATE,
+  dob: DataTypes.DATEONLY,
   mobile: DataTypes.INTEGER,
   email: DataTypes.STRING,
   address: DataTypes.STRING,
