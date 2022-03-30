@@ -26,7 +26,7 @@ const employeesData = [
     salary: 100000
   },
   {
-    name: "Brendon Sanfer",
+    name: "Brendan Sandfer",
     sex: "male",
     dob: 2002 - 11 - 27,
     mobile: "123456789",
