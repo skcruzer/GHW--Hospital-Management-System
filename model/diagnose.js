@@ -1,21 +1,25 @@
-MedicalHistory.init({
+Diagnose.init({
+    doc_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
     patient_id: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    year: {
-        type: DataTypes.TIMESTAMP,
-        allowNull: false
-    },
-    condition: {
+    diagnosis: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    surgeries: {
+    exams: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    medication: {
+    treatment: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    prescribed_meds: {
         type: DataTypes.STRING,
         allowNull: false
     }
