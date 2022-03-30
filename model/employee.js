@@ -12,7 +12,7 @@ Employee.init({
   },
   name: DataTypes.STRING,
   sex: DataTypes.STRING,
-  dob: DataTypes.INTEGER,
+  dob: DataTypes.DATE,
   mobile: DataTypes.INTEGER,
   email: DataTypes.STRING,
   salary: DataTypes.INTEGER
