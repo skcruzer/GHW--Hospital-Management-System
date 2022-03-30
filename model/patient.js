@@ -10,46 +10,17 @@ Patient.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  first_name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  last_name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  DOB: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  mobile: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  address: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  sex: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  primary_care_physician: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  pcp_contact: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  insurance: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
+  first_name: DataTypes.STRING,
+  last_name: DataTypes.STRING,
+  sex: DataTypes.STRING,
+  dob: DataTypes.DATE,
+  mobile: DataTypes.INTEGER,
+  email: DataTypes.STRING,
+  address: DataTypes.STRING,
+  primary_care_physician: DataTypes.STRING,
+  pcp_contact: DataTypes.INTEGER,  
+  insurance: DataTypes.STRING,
+
   //need to tie this w med history table
   //will grab all the med histories that references to this patient's id
   medical_history: {
@@ -64,6 +35,6 @@ Patient.init({
     allowNull: false
   }
   
-}, { sequelize, modelName: 'patient' })
+}, { sequelize, timestamps: false, modelName: 'patient' })
 
 module.exports = Patient
