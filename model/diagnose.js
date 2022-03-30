@@ -1,3 +1,5 @@
+// refer to appointment id! 
+
 Diagnose.init({
     doc_id: {
         type: DataTypes.INTEGER,
