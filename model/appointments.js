@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../config')
+const sequelize = require('../config/connection')
 
 class Appointments extends Model { }
 
@@ -44,7 +44,7 @@ Appointments.init({
   {
     sequelize,
     timestamps: false,
-    modelName: 'Appointments'
+    modelName: 'appointment'
   }
 )
 

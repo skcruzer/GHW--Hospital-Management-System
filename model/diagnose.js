@@ -7,13 +7,19 @@ class Diagnose extends Model { }
 
 
 Diagnose.init({
-    doc_id: {
+    employee_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        references: {
+            model: 'employees',
+            key: 'id'
+        }
     },
     patient_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        references: {
+            model: 'patients',
+            key: 'id'
+        }
     },
     diagnosis: {
         type: DataTypes.STRING,
@@ -31,8 +37,12 @@ Diagnose.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    
+},
+    {
     sequelize,
-    modelName: 'diagnose'
-})
+    modelName: 'diagnose' 
+    }
+)
 
 module.exports = Diagnose
