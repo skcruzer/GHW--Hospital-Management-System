@@ -51,14 +51,16 @@ Patient.init({
     allowNull: false
   },
   //need to tie this w med history table
+  //will grab all the med histories that references to this patient's id
   medical_history: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false
   },
 
   //need to tie this w appt table
+  //will grab all the appts that references to this patient's id
   appointments: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false
   }
   
