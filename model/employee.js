@@ -10,6 +10,7 @@ Employee.init({
     primaryKey: true,
     autoIncrement: true
   },
+  title: DataTypes.STRING,
   name: DataTypes.STRING,
   sex: DataTypes.STRING,
   dob: DataTypes.DATEONLY,
