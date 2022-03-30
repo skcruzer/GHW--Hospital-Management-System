@@ -1,3 +1,9 @@
+const { Model, DataTypes } = require('sequelize')
+const sequelize = require('../config/connection')
+
+class MedicalHistory extends Model { }
+
+
 MedicalHistory.init({
     patient_id: {
         type: DataTypes.INTEGER,
@@ -18,5 +24,9 @@ MedicalHistory.init({
     medication: {
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },
+    sequelize,
+    modelName: 'medicalhistory'
 })
+
+module.exports = MedicalHistory
