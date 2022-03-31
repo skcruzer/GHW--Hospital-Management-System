@@ -11,7 +11,7 @@ Appointments.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    date: DataTypes.DATE,
+    date: DataTypes.DATEONLY,
     start_time: DataTypes.TIME,
     end_time: DataTypes.TIME,
     complaint: DataTypes.STRING,
