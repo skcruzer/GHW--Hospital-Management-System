@@ -16,36 +16,38 @@ Employee.init(
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true
-      }
+        isEmail: true,
+      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8]
-      }
+        len: [8],
+      },
     },
     title: DataTypes.STRING,
     name: DataTypes.STRING,
     sex: DataTypes.STRING,
     dob: DataTypes.DATEONLY,
     mobile: DataTypes.INTEGER,
-    email: DataTypes.STRING,
     salary: DataTypes.INTEGER,
   },
-  { 
+  {
     hooks: {
       beforeCreate: async (user) => {
-        user.email = await user.email.toLowerCase()
-        return user
+        user.email = await user.email.toLowerCase();
+        return user;
       },
       beforeUpdate: async (user) => {
-        user.email = await user.email.toLowerCase()
-        return user
-      }
+        user.email = await user.email.toLowerCase();
+        return user;
+      },
     },
-    sequelize, timestamps: false, modelName: "Employee" }
+    sequelize,
+    timestamps: false,
+    modelName: "Employee",
+  }
 );
 
 module.exports = Employee;
