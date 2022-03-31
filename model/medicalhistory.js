@@ -1,36 +1,25 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const Patient = require("./patient");
 
 class MedicalHistory extends Model {}
 
-MedicalHistory.init({
-  patient_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: Patient,
-      key: "id",
+MedicalHistory.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
+    year: DataTypes.DATE,
+    condition: DataTypes.STRING,
+    surgeries: DataTypes.STRING,
+    medication: DataTypes.STRING,
   },
-  year: {
-    type: DataTypes.TIMESTAMP,
-    allowNull: false,
-  },
-  condition: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  surgeries: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  medication: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  sequelize,
-  modelName: "Medicalhistory",
-});
+  {
+    sequelize,
+    modelName: "medicalhistories",
+  }
+);
 
 module.exports = MedicalHistory;

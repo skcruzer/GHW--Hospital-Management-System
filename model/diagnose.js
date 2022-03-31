@@ -2,46 +2,27 @@
 
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const Employee = require("./employee");
-const Patient = require("./patient");
 
 class Diagnose extends Model {}
 
-Diagnose.init({
-  employee_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: Employee,
-      key: "id",
+Diagnose.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
+    patient_id: DataTypes.INTEGER,
+    diagnosis: DataTypes.STRING,
+    exams: DataTypes.STRING,
+    treatment: DataTypes.STRING,
+    prescribed_meds: DataTypes.STRING,
   },
-  patient_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: Patient,
-      key: "id",
-    },
-  },
-  diagnosis: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  exams: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  treatment: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  prescribed_meds: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  sequelize,
-  modelName: "diagnose",
-});
+  {
+    sequelize,
+    modelName: "diagnoses",
+  }
+);
 
 module.exports = Diagnose;
