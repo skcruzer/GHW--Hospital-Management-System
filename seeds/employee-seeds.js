@@ -5,9 +5,10 @@ const employeesData = [
     name: "Kien Hoang",
     sex: "male",
     title: "doctor",
-    dob: 2011 - 11 - 27,
+    dob: new Date("11/27/2011"),
     mobile: "123456789",
     email: "test@gmail.com",
+    password: "testing123",
     salary: 100000,
   },
   {
@@ -16,7 +17,8 @@ const employeesData = [
     title: "doctor",
     dob: 2011 - 11 - 27,
     mobile: "123456789",
-    email: "test@gmail.com",
+    email: "test1@gmail.com",
+    password: "testing123",
     salary: 100000,
   },
   {
@@ -25,7 +27,8 @@ const employeesData = [
     title: "doctor",
     dob: 2011 - 11 - 27,
     mobile: "123456789",
-    email: "test@gmail.com",
+    email: "test2@gmail.com",
+    password: "testing123",
     salary: 100000,
   },
   {
@@ -34,7 +37,8 @@ const employeesData = [
     title: "doctor",
     dob: 2002 - 11 - 27,
     mobile: "123456789",
-    email: "test@gmail.com",
+    email: "test3@gmail.com",
+    password: "testing123",
     salary: 100000,
   },
 ];

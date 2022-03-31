@@ -18,6 +18,7 @@ MedicalHistory.init(
   },
   {
     sequelize,
+    timestamps: false,
     modelName: "medicalhistories",
   }
 );

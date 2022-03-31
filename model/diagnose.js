@@ -12,7 +12,7 @@ Diagnose.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },    
+    },
     diagnosis: DataTypes.STRING,
     exams: DataTypes.STRING,
     treatment: DataTypes.STRING,
@@ -20,6 +20,7 @@ Diagnose.init(
   },
   {
     sequelize,
+    timestamps: false,
     modelName: "diagnoses",
   }
 );
