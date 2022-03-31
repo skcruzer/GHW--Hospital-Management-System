@@ -4,7 +4,7 @@ const employeesData = [
   {
     name: "Kien Hoang",
     sex: "male",
-    title: "doctor"
+    title: "doctor",
     dob: 2011 - 11 - 27,
     mobile: "123456789",
     email: "test@gmail.com",
@@ -13,7 +13,7 @@ const employeesData = [
   {
     name: "Sean Cruz",
     sex: "male",
-    title: "doctor"
+    title: "doctor",
     dob: 2011 - 11 - 27,
     mobile: "123456789",
     email: "test@gmail.com",
@@ -22,7 +22,7 @@ const employeesData = [
   {
     name: "Hye Won Park ",
     sex: "male",
-    title: "doctor"
+    title: "doctor",
     dob: 2011 - 11 - 27,
     mobile: "123456789",
     email: "test@gmail.com",
@@ -31,7 +31,7 @@ const employeesData = [
   {
     name: "Brendan Sandfer",
     sex: "male",
-    title: "doctor"
+    title: "doctor",
     dob: 2002 - 11 - 27,
     mobile: "123456789",
     email: "test@gmail.com",
