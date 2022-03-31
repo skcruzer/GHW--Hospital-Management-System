@@ -11,13 +11,14 @@ MedicalHistory.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    year: DataTypes.DATE,
+    year: DataTypes.DATEONLY,
     condition: DataTypes.STRING,
     surgeries: DataTypes.STRING,
     medication: DataTypes.STRING,
   },
   {
     sequelize,
+    timestamps:false,
     modelName: "medicalhistories",
   }
 );
