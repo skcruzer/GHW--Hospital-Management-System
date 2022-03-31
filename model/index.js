@@ -33,9 +33,7 @@ Patient.hasMany(MedicalHistory, {
   foreignKey: "patients_id",
   onDelete: "CASCADE",
 });
-MedicalHistory.belongsTo(Patient, {
-  foreignKey: "employees_id",
-});
+
 Patient.hasMany(Diagnose, {
   foreignKey: "patients_id",
   onDelete: "CASCADE",
