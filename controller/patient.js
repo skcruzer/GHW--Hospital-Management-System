@@ -52,4 +52,21 @@ router.delete('/patients/:id', async ({ body, params: { id } }, res) => {
   }
 });
 
+//update patient information
+router.put('/patients/:id', async ({ body, params: { id } }, res) => {
+  try {
+    const patient = await Patient.update(body, { where: { id }, individualHooks: true });
+
+    if (!patient[0]) {
+      res.status(404).json({ message: 'No patient with this id.' });
+      return;
+    }
+
+    res.status(200).json({ message: 'Patient has been updated!'})
+
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
 module.exports = router;
