@@ -6,8 +6,8 @@ class EmpSched extends Model {}
 
 EmpSched.init(
   {
-    start_time: DataTypes.DATEONLY,
-    end_time: DataTypes.DATEONLY,
+    start_time: DataTypes.TIME,
+    end_time: DataTypes.TIME,
   },
   {
     sequelize,
