@@ -33,15 +33,18 @@ Patient.hasMany(MedicalHistory, {
   foreignKey: "patients_id",
   onDelete: "CASCADE",
 });
-MedicalHistory.belongsTo(Patient, {
-  foreignKey: "employees_id",
-});
+
 Patient.hasMany(Diagnose, {
   foreignKey: "patients_id",
   onDelete: "CASCADE",
 });
 Diagnose.belongsTo(Patient, {
   foreignKey: "employees_id",
+});
+
+// linking appointments  to diagnoses
+Diagnose.belongsTo(Appointments, {
+  foreignKey: "appointments_id",
 });
 
 module.exports = {

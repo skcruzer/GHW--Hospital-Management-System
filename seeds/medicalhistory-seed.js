@@ -8,7 +8,6 @@ const medhistoryData = [
     surgeries: "cardiac bypass surgery",
     medication: "heart meds",
     patients_id: "1",
-    employees_id: "1"
   },
   {
     year: 2022 - 11 - 27,
@@ -16,7 +15,6 @@ const medhistoryData = [
     surgeries: "lumpectomy",
     medication: "pain meds",
     patients_id: "2",
-    employees_id: "2"
   },
   {
     year: 2018 - 11 - 27,
@@ -24,7 +22,6 @@ const medhistoryData = [
     surgeries: "abscess removal",
     medication: "pain meds",
     patients_id: "3",
-    employees_id: "1"
   },
   {
     year: 2021 - 11 - 27,
@@ -32,9 +29,7 @@ const medhistoryData = [
     surgeries: "colostomy",
     medication: "pain meds",
     patients_id: "4",
-    employees_id: "1"
   },
-
 ];
 
 const seedMedHistory = () => MedicalHistory.bulkCreate(medhistoryData);
