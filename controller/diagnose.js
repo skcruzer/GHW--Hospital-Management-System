@@ -1,14 +1,47 @@
 const router = require("express").Router();
-const { Appointments } = require("../model");
+const { Diagnose } = require("../model");
 
-router.get("/appointments", async (req, res) => {
+//get all
+router.get("/diagnoses", async (req, res) => {
   try {
-    const appointments = await Appointments.findAll({});
-    res.json(appointments);
+    const diagnoses = await Diagnose.findAll({});
+    res.json(diagnoses);
   } catch {
     res
       .status(500)
-      .json({ message: "Something went wrong, please try again.", error: err });
+      .json({ message: "Something went wrong, please try again." });
+  }
+});
+
+//get by
+router.get("/diagnoses/:id", async ({ body, params: { id } }, res) => {
+  try {
+    const diagnose = await Diagnose.findOne({ where: { id } });
+    res.json(diagnose);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Something went wrong, please try again." });
+  }
+});
+
+//update
+router.put("/diagnoses/:id", async ({ body, params: { id } }, res) => {
+  try {
+    const diagnose = await Diagnose.findOne({ where: { id } });
+
+    if (!diagnose) {
+      res.status(404).json({ message: "No user with this id." });
+      return;
+    }
+
+    await Diagnose.update({ ...body }, { where: { id } });
+
+    res.status(200).json({ message: "Successfuly updated!" });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Something went wrong, please try again." });
   }
 });
 
