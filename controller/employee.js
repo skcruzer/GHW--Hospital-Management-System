@@ -59,5 +59,21 @@ router.delete('/employees/:id', async ({ body, params: { id } }, res) => {
   }
 });
 
+//UPDATE employee info
+router.put('/employees/:id', async ({ body, params: { id } }, res) => {
+  try {
+    const employee = await Employee.update(body, { where: { id }, individualHooks: true });
+
+    if (!employee[0]) {
+      res.status(404).json({ message: 'No employee with this id.' });
+      return;
+    }
+
+    res.status(200).json(employee)
+
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 
 module.exports = router
