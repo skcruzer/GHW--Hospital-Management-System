@@ -46,6 +46,9 @@ Diagnose.belongsTo(Patient, {
 Diagnose.belongsTo(Appointments, {
   foreignKey: "appointments_id",
 });
+Appointments.belongsTo(Patient, {
+  foreignKey: "patient_id",
+});
 
 module.exports = {
   Employee,
