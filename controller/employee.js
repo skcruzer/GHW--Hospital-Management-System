@@ -12,18 +12,18 @@ router.get('/employees', async (req, res) => {
 })
 
 // //GET a SINGLE employee with their schedule by ID
-router.get('/employees/:id', async ({body, params:{id}}, res) => {
+router.get('/employees/:id', async ({ body, params: { id } }, res) => {
   try {
     const employee = await Employee.findOne({
-      where: {id},
-      include: [{model: EmpSched}]
+      where: { id },
+      include: [{ model: EmpSched }]
     });
-    
+
     if (!employee) {
       res.status(404).json({ message: 'No employee found with this id!' });
       return;
     }
-    
+
     res.json(employee);
 
   } catch (err) {
@@ -42,6 +42,22 @@ router.post('/employees', async ({ body }, res) => {
 })
 
 //DELETE an employee
+router.delete('/employees/:id', async ({ body, params: { id } }, res) => {
+  try {
+    const employee = await Employee.destroy({
+      where: { id }
+    });
+
+    if (!employee) {
+      res.status(404).json({ message: 'No employee found with this id!' });
+      return;
+    }
+
+    res.status(200).json(employee);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 module.exports = router
