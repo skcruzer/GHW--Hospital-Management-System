@@ -2,8 +2,6 @@ const { Employee } = require("../model");
 
 const employeesData = [
   {
-    email: "hello@gmail.com",
-    password: "dlkajdf",
     name: "Kien Hoang",
     sex: "male",
     title: "doctor",
@@ -14,8 +12,6 @@ const employeesData = [
     salary: 100000,
   },
   {
-    email: "hello@gmail.com",
-    password: "dlkajdf",
     name: "Sean Cruz",
     sex: "male",
     title: "doctor",
@@ -26,8 +22,6 @@ const employeesData = [
     salary: 100000,
   },
   {
-    email: "hello@gmail.com",
-    password: "dlkajdf",
     name: "Hye Won Park ",
     sex: "male",
     title: "doctor",
@@ -38,8 +32,6 @@ const employeesData = [
     salary: 100000,
   },
   {
-    email: "hello@gmail.com",
-    password: "dlkajdf",
     name: "Brendan Sandfer",
     sex: "male",
     title: "doctor",
@@ -51,9 +43,10 @@ const employeesData = [
   },
 ];
 
-const seedEmployees = () => Employee.bulkCreate(employeesData, {
-  individualHooks: true,
-  returning: true,
-});
+const seedEmployees = () =>
+  Employee.bulkCreate(employeesData, {
+    individualHooks: true,
+    returning: true,
+  });
 
 module.exports = seedEmployees;
