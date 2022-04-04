@@ -39,7 +39,7 @@ Patient.hasMany(Diagnose, {
   onDelete: "CASCADE",
 });
 Diagnose.belongsTo(Patient, {
-  foreignKey: "employees_id",
+  foreignKey: "patient_id",
 });
 
 // linking appointments  to diagnoses
