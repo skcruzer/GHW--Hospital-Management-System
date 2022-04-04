@@ -32,7 +32,9 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   const colInsurance = document.createElement('th');
   const colMedHist = document.createElement('th');
 
+  
   medicalhistories.forEach(history => {
+    
     const medBody = document.createElement('div');
     colMedHist.innerHTML = `<p>Condition: ${history.condition}</p>
     <li>Year: ${history.year}</li>
@@ -61,7 +63,6 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
             
             
   rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance, colMedHist) ;
-  // console.log(medicalhistories[0]);
   return rowPatient;
 }
 
