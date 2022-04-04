@@ -4,6 +4,10 @@ const session = require("express-session");
 const express = require("express");
 const { join } = require("path");
 
+const dayjs = require('dayjs')
+//import dayjs from 'dayjs' // ES 2015
+dayjs().format()
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
