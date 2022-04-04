@@ -28,7 +28,21 @@ const addEmployee = async function (employee) {
     const colSalary = document.createElement('th');
     const colSchedule = document.createElement('th');
   
-  
+    if (!empScheds) {
+      console.log('no schedule for this patient')
+    }
+    else {
+      empScheds.forEach(sched => {
+
+        const schedBody = document.createElement('div');
+        colSchedule.innerHTML = `<p>Schedule Date: ??</p>
+    <li>Start Time: ${sched.start_time}</li>
+    <li>End Time: ${sched.end_time}</li>
+   <br>`
+        colSchedule.append(schedBody);
+      })
+    }
+
     
     colId.innerHTML = `${id}`
     rowEmployee.classList.add(id);
@@ -64,7 +78,7 @@ const addEmployee = async function (employee) {
   document.getElementById('addEmployee').addEventListener('click', event => {
   
     addEmployee({
-      email: document.getElementById('formEmal').value,
+      email: document.getElementById('formEmail').value,
       password: document.getElementById('formPassword').value,
       title: document.getElementById('formTitle').value,
       name: document.getElementById('formName').value,
@@ -72,7 +86,7 @@ const addEmployee = async function (employee) {
       dob: document.getElementById('formDOB').value,
       mobile: document.getElementById('formMobile').value,
       salary: document.getElementById('formSalary').value,
-      schedule: document.getElementById('formSchedule').value
+      // schedule: document.getElementById('formSchedule').value
     })
       .then(employee => {
         //need to add to database
