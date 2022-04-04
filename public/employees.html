@@ -62,8 +62,8 @@
   </nav>
 
   <br>
-  <!-- the table containing patient info -->
-  <h5>Patients</h5>
+  <!-- the table containing employee info -->
+  <h5>Employees</h5>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -74,16 +74,15 @@
                 <thead>
                   <tr>
                     <th scope="col" id="tablehead">#</th>
-                    <th scope="col" id="tablehead">First</th>
-                    <th scope="col" id="tablehead">Last</th>
+                    <th scope="col" id="tablehead">Email</th>
+                    <th scope="col" id="tablehead">Password</th>
+                    <th scope="col" id="tablehead">Title</th>
+                    <th scope="col" id="tablehead">Name</th>
                     <th scope="col" id="tablehead">Sex</th>
                     <th scope="col" id="tablehead">Date of Birth</th>
                     <th scope="col" id="tablehead">Mobile</th>
-                    <th scope="col" id="tablehead">Email</th>
-                    <th scope="col" id="tablehead">Address</th>
-                    <th scope="col" id="tablehead">PCP</th>
-                    <th scope="col" id="tablehead">Insurance</th>
-                    <th scope="col" id="tablehead">Med History</th>
+                    <th scope="col" id="tablehead">Salary</th>
+                    <th scope="col" id="tablehead">Schedule</th>
 
                   </tr>
                 </thead>
@@ -104,62 +103,61 @@
   </div>
 
   <br>
-<!-- add patients -->
-  <h5>Fill the following to add new patient.</h5>
+<!-- add employees -->
+  <h5>Fill the following to add new employee.</h5>
   <form>
    
     <p>
-      <label for="name">First name:</label>
-      <input type="text" name="name" id="formFname">
-      <label for="name">Last name:</label>
-      <input type="text" name="name" id="formLname">
+      <label>Name:</label>
+      <input type="text" id="formName">
+      <label>Title:</label>
+      <input type="text" id="formTitle">
+
+      
+    </p>
+
+    <p>
+      <label for="email">Email:</label>
+      <input type="text" id="formEmail">
+      <label for="password">Password (8 chars or more):</label>
+      <input type="text" id="formPassword">
+        
     </p>
 
     <p>
       <label">Sex:</label>
-        <input type="text" id="formSex">
-        <label>Date of Birth:</label>
-        <input type="text" id="formDob">
-    </p>
-
-    <p>
+        <input type="text"  id="formSex">
+      <label>Date of Birth:</label>
+        <input type="text" id="formDOB">
       <label">Mobile:</label>
-        <input type="number"  id="formMobile">
-      <label>Email:</label>
-        <input type="text" id="formEmail">
-      <label">Address:</label>
-          <input type="text" id="formAddress">
+          <input type="text" id="formMobile">
     </p>
     
     <p>
-      <label>Primary Care Physician Name:</label>
-      <input type="text" id="formPcp">
-      <label">PCP Contact:</label>
-        <input type="text" id="formPcpContact">
+      <label>Salary:</label>
+      <input type="text" id="formSalary">
+      <!-- <label">Schedule:</label>
+        <input type="text" id="formSchedule"> -->
     </p>
     
-    <p>
-      <label>Insurance Co:</label>
-      <input type="text" id="formInsurance">
-    </p>
-    <button id="addPatient">Add Patient</button>
+    <button id="addEmployee">Add Employee</button>
   </form>
 
-  <!-- delete patients -->
+  <!-- delete employees -->
   <br>
-  <h5>Delete patient by Id</h5>
+  <h5>Delete employee by Id</h5>
   <form>
-    <label for="name">Patient Id:</label>
+    <label for="name">Employee Id:</label>
     <input type="text" name="name" id="formdeleId">
-    <button id="deletePatient">Delete Patient</button>
+    <button id="deleteEmployee">Delete Employee</button>
   </form>
 
 
-  <div id="patients"></div>
+  <div id="employees"></div>
 
 
 
-  <script src="./js/patient.js"></script>
+  <script src="./js/employee.js"></script>
 
   
 

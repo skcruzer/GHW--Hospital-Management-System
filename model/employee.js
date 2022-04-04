@@ -36,8 +36,8 @@ Employee.init(
     name: DataTypes.STRING,
     sex: DataTypes.STRING,
     dob: DataTypes.DATEONLY,
-    mobile: DataTypes.INTEGER,
-    salary: DataTypes.INTEGER,
+    mobile: DataTypes.BIGINT,
+    salary: DataTypes.BIGINT,
   },
   {
     hooks: {
