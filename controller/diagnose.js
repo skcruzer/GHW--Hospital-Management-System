@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { Diagnose } = require("../model");
+const { Diagnose, Appointments } = require("../model");
 
 //get all
 router.get("/diagnoses", async (req, res) => {
   try {
-    const diagnoses = await Diagnose.findAll({});
+    const diagnoses = await Diagnose.findAll();
     res.json(diagnoses);
   } catch {
     res

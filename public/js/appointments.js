@@ -21,7 +21,7 @@ const addAppointment = async function (appointment) {
   })
 }
 
-const createAppointment = ({ id, date, start_time, end_time, complaint, employees_id, patients_id }) => {
+const createAppointment = ({ id, date, start_time, end_time, complaint, patients_id, employees_id, diagnoses }) => {
   const rowAppointment = document.createElement('tr')
   const colApptId = document.createElement('th')
   const colApptDate = document.createElement('th')
@@ -30,6 +30,23 @@ const createAppointment = ({ id, date, start_time, end_time, complaint, employee
   const colApptComp = document.createElement('th')
   const colApptPat = document.createElement('th')
   const colApptDoc = document.createElement('th')
+  const colDiagnosis = document.createElement('th')
+
+  if(!diagnoses) {
+    console.log('no diagnosis for this appointment at this time.')
+
+  } else {
+    diagnoses.forEach(diagnosis => {
+
+    const diagBody = document.createElement('div')
+    colDiagnosis.innerHTML = `<p>Diagnosis: ${diagnosis.diagnosis}</p>
+    <li>Exams: ${diagnosis.exams}</li>
+    <li>Treatment: ${diagnosis.treatment}</li>
+    <li>Prescriptions: ${diagnosis.prescribed_meds}</li>
+    <br>`
+      colDiagnosis.append(diagBody)
+    })
+  }
   
   colApptId.innerHTML = `${id}`
   rowAppointment.classList.add(id)
@@ -40,7 +57,8 @@ const createAppointment = ({ id, date, start_time, end_time, complaint, employee
   colApptPat.innerHTML = `${patients_id}`
   colApptDoc.innerHTML = `${employees_id}`
 
-  rowAppointment.append(colApptId, colApptDate, colApptStart, colApptEnd, colApptComp, colApptPat, colApptDoc)
+  rowAppointment.append(colApptId, colApptDate, colApptStart, colApptEnd, colApptComp, colApptPat, colApptDoc, colDiagnosis)
+
   return rowAppointment
 }
 
@@ -51,7 +69,7 @@ getAppointments()
   })
   .catch(err => console.error(err))
 
-// add new pointments
+// add new appointments
 document.getElementById('addAppointment').addEventListener('click', event => {
 
   addAppointment({
