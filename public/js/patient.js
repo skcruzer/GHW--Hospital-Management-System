@@ -32,17 +32,22 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   const colInsurance = document.createElement('th');
   const colMedHist = document.createElement('th');
 
-  
-  medicalhistories.forEach(history => {
-    
-    const medBody = document.createElement('div');
-    colMedHist.innerHTML = `<p>Condition: ${history.condition}</p>
+  if(!medicalhistories) {
+    console.log('no medical histories for this patient')
+  }
+  else{
+    medicalhistories.forEach(history => {
+
+      const medBody = document.createElement('div');
+      colMedHist.innerHTML = `<p>Condition: ${history.condition}</p>
     <li>Year: ${history.year}</li>
     <li>Surg: ${history.surgeries}</li>
     <li>Med: ${history.medication}</li> 
    <br>`
-    colMedHist.append(medBody);
-  })
+      colMedHist.append(medBody);
+    })
+  }
+  
   
   colId.innerHTML = `${id}`
   rowPatient.classList.add(id);
