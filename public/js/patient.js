@@ -2,6 +2,18 @@ const getPatients = async function () {
   const res = await fetch('/api/patients');
   return res.json();
 }
+
+const addPatient = async function (patient) {
+  const res = await fetch('api/patients', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(patient)
+  })
+  return res.json();
+}
+
 const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories }) => {
   const rowPatient = document.createElement('tr');
   const colId = document.createElement('th');
@@ -42,16 +54,33 @@ getPatients()
   .catch(err => console.error(err));
 
 
-const addPatient = async function (patient) {
-  const res = await fetch('api/patients', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(patient)
+
+
+//add patients by pressing button
+document.getElementById('addPatient').addEventListener('click', event => {
+  event.preventDefault();
+
+  addPatient({
+    first_name: document.getElementById('formFname').value,
+    last_name: document.getElementById('formLname').value,
+    sex: document.getElementById('formSex').value,
+    dob: document.getElementById('formDob').value,
+    //doesnt seem to work from here :/
+    mobile: document.getElementById('formMobile').value,
+    email: document.getElementById('formEmail').value,
+    address: document.getElementById('formAddress').value,
+    primary_care_physician: document.getElementById('formPcp').value,
+    pcp_contact: document.getElementById('formPcpContact').value,
+    insurance: document.getElementById('formInsurance').value
   })
-  return res.json();
-}
+    .then(patient => {
+      //need to add to database
+      document.getElementById('tablebody').append(createPatient(patient))
+    })
+    .catch(err => console.error(err))
+})
+
+
 
 
 
