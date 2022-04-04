@@ -13,6 +13,7 @@ const addPatient = async function (patient) {
     body: JSON.stringify(patient),
   });
   return res.json();
+};
 
 }
 
@@ -32,19 +33,17 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   const colMedHist = document.createElement('th');
 
   if (!medicalhistories) {
-    console.log('no medical histories for this patient')
-  }
-  else {
-    medicalhistories.forEach(history => {
-
-      const medBody = document.createElement('div');
+    console.log("no medical histories for this patient");
+  } else {
+    medicalhistories.forEach((history) => {
+      const medBody = document.createElement("div");
       colMedHist.innerHTML = `<p>Condition: ${history.condition}</p>
     <li>Year: ${history.year}</li>
     <li>Surg: ${history.surgeries}</li>
     <li>Med: ${history.medication}</li> 
-   <br>`
+   <br>`;
       colMedHist.append(medBody);
-    })
+    });
   }
 
 
@@ -61,7 +60,6 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   colInsurance.innerHTML = `${insurance}`
 
   rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance, colMedHist);
-
   return rowPatient;
 };
 

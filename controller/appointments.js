@@ -1,10 +1,10 @@
 const router = require('express').Router()
-const { Appointments, Patient, Diagnose } = require('../model')
+const { Appointments, Diagnose } = require('../model')
 
 //get all appointments
 router.get('/appointments', async (req, res) => {
   try {
-    let appointments = await Appointments.findAll();
+    let appointments = await Appointments.findAll({ include: [{ model: Diagnose }] });
     res.status(200).json(appointments);
   } catch (err) {
     res.status(400).json({ message: 'Woops! Something went wrong.' })
