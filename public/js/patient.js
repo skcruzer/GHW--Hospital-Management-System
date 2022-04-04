@@ -1,3 +1,4 @@
+//GET PATIENTS
 const getPatients = async function () {
   const res = await fetch('/api/patients');
   return res.json();
@@ -57,7 +58,7 @@ getPatients()
 
 
 
-//add patients by pressing button
+//ADD patients by pressing button
 document.getElementById('addPatient').addEventListener('click', event => {
   event.preventDefault();
 
@@ -81,7 +82,7 @@ document.getElementById('addPatient').addEventListener('click', event => {
     .catch(err => console.error(err))
 })
 
-//delete patient
+//DELETE patient
 const deletePatient = async function (id) {
   await fetch(`/api/patients/${id}`, {
     method: 'DELETE'
@@ -104,10 +105,3 @@ document.getElementById('deletePatient').addEventListener('click', event => {
   })
   .catch(err=>console.error(err))
 })
-
-// const deletePatient = (id) => {
-//   const deleteId =
-// }
-
-
-//id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories
