@@ -53,9 +53,6 @@ const createEmployee = ({ id, email, password, title, name, sex, dob, mobile, sa
   colDOB.innerHTML = `${dob}`
   colMobile.innerHTML = `${mobile}`
   colSalary.innerHTML = `${salary}`
-  // colSchedule.innerHTML = `${schedule}`
-
-
 
   rowEmployee.append(colId, colEmail, colPassword, colTitle, colName, colSex, colDOB, colMobile, colSalary, colSchedule);
 
