@@ -29,6 +29,7 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
 
 
   colId.innerHTML = `${id}`
+  rowPatient.classList.add(id);
   colFirst.innerHTML = `${first_name}`
   colLast.innerHTML = `${last_name}`
   colSex.innerHTML = `${sex}`
@@ -80,8 +81,33 @@ document.getElementById('addPatient').addEventListener('click', event => {
     .catch(err => console.error(err))
 })
 
+//delete patient
+const deletePatient = async function (id) {
+  await fetch(`/api/patients/${id}`, {
+    method: 'DELETE'
+  })
+  return true;
+}
 
+document.getElementById('deletePatient').addEventListener('click', event => {
+  event.preventDefault();
 
+  deletePatient(document.getElementById('formdeleId').value)
+  .then(id=> {
+    let table = document.getElementById('tablebody');
+    for (let i=0; i<table.length; i++) {
+      if (table[i].getElementsByClassName==id) {
+        table.deleteRow(i);
+      }
+    }
+    //you need to refresh to see whether patient is deleted
+  })
+  .catch(err=>console.error(err))
+})
+
+// const deletePatient = (id) => {
+//   const deleteId =
+// }
 
 
 //id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories
