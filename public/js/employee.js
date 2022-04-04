@@ -40,7 +40,7 @@ const addEmployee = async function (employee) {
     colDOB.innerHTML = `${dob}`
     colMobile.innerHTML = `${mobile}`
     colSalary.innerHTML = `${salary}`
-    colSchedule.innerHTML = `${schedule}`
+    // colSchedule.innerHTML = `${schedule}`
   
 
               
@@ -53,7 +53,7 @@ const addEmployee = async function (employee) {
   getEmployees()
     .then(employees => {
       employees.forEach(employee =>
-        document.getElementById('tablebody').append(createemployee(patient)))
+        document.getElementById('tablebody').append(createEmployee(employee)))
     })
     .catch(err => console.error(err));
   
