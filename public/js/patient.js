@@ -15,33 +15,22 @@ const addPatient = async function (patient) {
   return res.json();
 };
 
-const createPatient = ({
-  id,
-  first_name,
-  last_name,
-  sex,
-  dob,
-  mobile,
-  email,
-  address,
-  primary_care_physician,
-  pcp_contact,
-  insurance,
-  appointments,
-  medicalhistories,
-}) => {
-  const rowPatient = document.createElement("tr");
-  const colId = document.createElement("th");
-  const colFirst = document.createElement("th");
-  const colLast = document.createElement("th");
-  const colSex = document.createElement("th");
-  const colDob = document.createElement("th");
-  const colMobile = document.createElement("th");
-  const colEmail = document.createElement("th");
-  const colAddress = document.createElement("th");
-  const colPcp = document.createElement("th");
-  const colInsurance = document.createElement("th");
-  const colMedHist = document.createElement("th");
+}
+
+const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories }) => {
+
+  const rowPatient = document.createElement('tr');
+  const colId = document.createElement('th');
+  const colFirst = document.createElement('th');
+  const colLast = document.createElement('th');
+  const colSex = document.createElement('th');
+  const colDob = document.createElement('th');
+  const colMobile = document.createElement('th');
+  const colEmail = document.createElement('th');
+  const colAddress = document.createElement('th');
+  const colPcp = document.createElement('th');
+  const colInsurance = document.createElement('th');
+  const colMedHist = document.createElement('th');
 
   if (!medicalhistories) {
     console.log("no medical histories for this patient");
@@ -57,32 +46,20 @@ const createPatient = ({
     });
   }
 
-  colId.innerHTML = `${id}`;
+
+  colId.innerHTML = `${id}`
   rowPatient.classList.add(id);
-  colFirst.innerHTML = `${first_name}`;
-  colLast.innerHTML = `${last_name}`;
-  colSex.innerHTML = `${sex}`;
-  colDob.innerHTML = `${dob}`;
-  colMobile.innerHTML = `${mobile}`;
-  colEmail.innerHTML = `${email}`;
-  colAddress.innerHTML = `${address}`;
-  colPcp.innerHTML = `${primary_care_physician} (phone:${pcp_contact})`;
-  colInsurance.innerHTML = `${insurance}`;
+  colFirst.innerHTML = `${first_name}`
+  colLast.innerHTML = `${last_name}`
+  colSex.innerHTML = `${sex}`
+  colDob.innerHTML = `${dob}`
+  colMobile.innerHTML = `${mobile}`
+  colEmail.innerHTML = `${email}`
+  colAddress.innerHTML = `${address}`
+  colPcp.innerHTML = `${primary_care_physician} (phone:${pcp_contact})`
+  colInsurance.innerHTML = `${insurance}`
 
-  rowPatient.append(
-    colId,
-    colFirst,
-    colLast,
-    colSex,
-    colDob,
-    colMobile,
-    colEmail,
-    colAddress,
-    colPcp,
-    colInsurance,
-    colMedHist
-  );
-
+  rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance, colMedHist);
   return rowPatient;
 };
 
@@ -141,3 +118,26 @@ document.getElementById("deletePatient").addEventListener("click", (event) => {
     })
     .catch((err) => console.error(err));
 });
+
+//SEARCH patient
+const searchPatient = async function (id) {
+  const res = await fetch(`/api/patients/${id}`);
+  return res.json();
+};
+
+document.getElementById("searchBtn").addEventListener("click", (event) => {
+  event.preventDefault();
+
+  // //delete any previously searched patient
+  // let table2 = document.getElementById("tablebody2");
+  // if(table2.length==1) {
+  //     table2.deleteRow(0);
+  // }
+  
+  searchPatient(document.getElementById("searchId").value)
+    .then((patient) => {
+      document.getElementById("tablebody2").append(createPatient(patient))
+    })
+    .catch((err) => console.error(err));
+});
+

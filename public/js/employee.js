@@ -114,3 +114,4 @@ document.getElementById('deleteEmployee').addEventListener('click', event => {
     })
     .catch(err => console.error(err))
 })
+
