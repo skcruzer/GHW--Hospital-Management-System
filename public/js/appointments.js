@@ -1,3 +1,4 @@
+// console log appointments data from database
 fetch('/api/appointments').then(function(res) {
   // console.log(res.json())
   return res.json()
@@ -5,6 +6,7 @@ fetch('/api/appointments').then(function(res) {
 .then(function(data) {
   console.log(data)
 })
+
 // get appointments
 const getAppointments = async function () {
   const res = await fetch('/api/appointments')
