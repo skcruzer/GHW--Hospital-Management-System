@@ -33,16 +33,16 @@ const createAppointment = ({ id, date, start_time, end_time, complaint, patients
   const colDiagnosis = document.createElement('th')
 
   if(!diagnoses) {
-    console.log('no diagnosis for this appointment at this time.')
+    console.log('no diagnosis at this time.')
 
   } else {
-    diagnoses.forEach(diagnosis => {
+    diagnoses.forEach(patDiag => {
 
     const diagBody = document.createElement('div')
-    colDiagnosis.innerHTML = `<p>Diagnosis: ${diagnosis.diagnosis}</p>
-    <li>Exams: ${diagnosis.exams}</li>
-    <li>Treatment: ${diagnosis.treatment}</li>
-    <li>Prescriptions: ${diagnosis.prescribed_meds}</li>
+    colDiagnosis.innerHTML = `<p>Diagnosis: ${patDiag.diagnosis}</p>
+    <li>Exams: ${patDiag.exams}</li>
+    <li>Treatment: ${patDiag.treatment}</li>
+    <li>Prescriptions: ${patDiag.prescribed_meds}</li>
     <br>`
       colDiagnosis.append(diagBody)
     })
