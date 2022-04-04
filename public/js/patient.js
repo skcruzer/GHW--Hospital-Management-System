@@ -31,10 +31,10 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   const colInsurance = document.createElement('th');
   const colMedHist = document.createElement('th');
 
-  if(!medicalhistories) {
+  if (!medicalhistories) {
     console.log('no medical histories for this patient')
   }
-  else{
+  else {
     medicalhistories.forEach(history => {
 
       const medBody = document.createElement('div');
@@ -46,8 +46,8 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
       colMedHist.append(medBody);
     })
   }
-  
-  
+
+
   colId.innerHTML = `${id}`
   rowPatient.classList.add(id);
   colFirst.innerHTML = `${first_name}`
@@ -59,8 +59,8 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   colAddress.innerHTML = `${address}`
   colPcp.innerHTML = `${primary_care_physician} (phone:${pcp_contact})`
   colInsurance.innerHTML = `${insurance}`
-            
-  rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance, colMedHist) ;
+
+  rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance, colMedHist);
 
   return rowPatient;
 };
@@ -120,3 +120,26 @@ document.getElementById("deletePatient").addEventListener("click", (event) => {
     })
     .catch((err) => console.error(err));
 });
+
+//SEARCH patient
+const searchPatient = async function (id) {
+  const res = await fetch(`/api/patients/${id}`);
+  return res.json();
+};
+
+document.getElementById("searchBtn").addEventListener("click", (event) => {
+  event.preventDefault();
+
+  // //delete any previously searched patient
+  // let table2 = document.getElementById("tablebody2");
+  // if(table2.length==1) {
+  //     table2.deleteRow(0);
+  // }
+  
+  searchPatient(document.getElementById("searchId").value)
+    .then((patient) => {
+      document.getElementById("tablebody2").append(createPatient(patient))
+    })
+    .catch((err) => console.error(err));
+});
+

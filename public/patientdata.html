@@ -29,6 +29,8 @@
       text-align: center;
       font-weight: bold;
     }
+
+    
     
   </style>
 </head>
@@ -154,8 +156,54 @@
     <button id="deletePatient">Delete Patient</button>
   </form>
 
+  <!-- search patients -->
+  <br>
+  <h5>Search patient by Id</h5>
+  <form>
+    <label for="name">Patient Id:</label>
+    <input type="text" name="name" id="searchId">
+    <button id="searchBtn">Search Patient</button>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body">
+              <div class="table-responsive-lg">
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col" id="tablehead">#</th>
+                      <th scope="col" id="tablehead">First</th>
+                      <th scope="col" id="tablehead">Last</th>
+                      <th scope="col" id="tablehead">Sex</th>
+                      <th scope="col" id="tablehead">Date of Birth</th>
+                      <th scope="col" id="tablehead">Mobile</th>
+                      <th scope="col" id="tablehead">Email</th>
+                      <th scope="col" id="tablehead">Address</th>
+                      <th scope="col" id="tablehead">PCP</th>
+                      <th scope="col" id="tablehead">Insurance</th>
+                      <th scope="col" id="tablehead">Med History</th>
+    
+                    </tr>
+                  </thead>
+                  <tbody id="tablebody2">
+    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </form>
 
-  <div id="patients"></div>
+
 
 
 
