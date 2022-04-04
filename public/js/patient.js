@@ -13,54 +13,75 @@ const addPatient = async function (patient) {
     body: JSON.stringify(patient),
   });
   return res.json();
+};
 
-}
+const createPatient = ({
+  id,
+  first_name,
+  last_name,
+  sex,
+  dob,
+  mobile,
+  email,
+  address,
+  primary_care_physician,
+  pcp_contact,
+  insurance,
+  appointments,
+  medicalhistories,
+}) => {
+  const rowPatient = document.createElement("tr");
+  const colId = document.createElement("th");
+  const colFirst = document.createElement("th");
+  const colLast = document.createElement("th");
+  const colSex = document.createElement("th");
+  const colDob = document.createElement("th");
+  const colMobile = document.createElement("th");
+  const colEmail = document.createElement("th");
+  const colAddress = document.createElement("th");
+  const colPcp = document.createElement("th");
+  const colInsurance = document.createElement("th");
+  const colMedHist = document.createElement("th");
 
-const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories }) => {
-
-  const rowPatient = document.createElement('tr');
-  const colId = document.createElement('th');
-  const colFirst = document.createElement('th');
-  const colLast = document.createElement('th');
-  const colSex = document.createElement('th');
-  const colDob = document.createElement('th');
-  const colMobile = document.createElement('th');
-  const colEmail = document.createElement('th');
-  const colAddress = document.createElement('th');
-  const colPcp = document.createElement('th');
-  const colInsurance = document.createElement('th');
-  const colMedHist = document.createElement('th');
-
-  if(!medicalhistories) {
-    console.log('no medical histories for this patient')
-  }
-  else{
-    medicalhistories.forEach(history => {
-
-      const medBody = document.createElement('div');
+  if (!medicalhistories) {
+    console.log("no medical histories for this patient");
+  } else {
+    medicalhistories.forEach((history) => {
+      const medBody = document.createElement("div");
       colMedHist.innerHTML = `<p>Condition: ${history.condition}</p>
     <li>Year: ${history.year}</li>
     <li>Surg: ${history.surgeries}</li>
     <li>Med: ${history.medication}</li> 
-   <br>`
+   <br>`;
       colMedHist.append(medBody);
-    })
+    });
   }
-  
-  
-  colId.innerHTML = `${id}`
+
+  colId.innerHTML = `${id}`;
   rowPatient.classList.add(id);
-  colFirst.innerHTML = `${first_name}`
-  colLast.innerHTML = `${last_name}`
-  colSex.innerHTML = `${sex}`
-  colDob.innerHTML = `${dob}`
-  colMobile.innerHTML = `${mobile}`
-  colEmail.innerHTML = `${email}`
-  colAddress.innerHTML = `${address}`
-  colPcp.innerHTML = `${primary_care_physician} (phone:${pcp_contact})`
-  colInsurance.innerHTML = `${insurance}`
-            
-  rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance, colMedHist) ;
+  colFirst.innerHTML = `${first_name}`;
+  colLast.innerHTML = `${last_name}`;
+  colSex.innerHTML = `${sex}`;
+  colDob.innerHTML = `${dob}`;
+  colMobile.innerHTML = `${mobile}`;
+  colEmail.innerHTML = `${email}`;
+  colAddress.innerHTML = `${address}`;
+  colPcp.innerHTML = `${primary_care_physician} (phone:${pcp_contact})`;
+  colInsurance.innerHTML = `${insurance}`;
+
+  rowPatient.append(
+    colId,
+    colFirst,
+    colLast,
+    colSex,
+    colDob,
+    colMobile,
+    colEmail,
+    colAddress,
+    colPcp,
+    colInsurance,
+    colMedHist
+  );
 
   return rowPatient;
 };
