@@ -34,14 +34,6 @@ Patient.hasMany(MedicalHistory, {
   onDelete: "CASCADE",
 });
 
-// Patient.hasMany(Diagnose, {
-//   foreignKey: "patients_id",
-//   onDelete: "CASCADE",
-// });
-// Diagnose.belongsTo(Patient, {
-//   foreignKey: "employees_id",
-// });
-
 // linking appointments to diagnoses
 Appointments.hasOne(Diagnose, {
   foreignKey: "appointments_id",

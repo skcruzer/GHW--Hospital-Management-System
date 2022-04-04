@@ -15,11 +15,11 @@ Patient.init(
     last_name: DataTypes.STRING,
     sex: DataTypes.STRING,
     dob: DataTypes.DATEONLY,
-    mobile: DataTypes.INTEGER,
+    mobile: DataTypes.BIGINT,
     email: DataTypes.STRING,
     address: DataTypes.STRING,
     primary_care_physician: DataTypes.STRING,
-    pcp_contact: DataTypes.INTEGER,
+    pcp_contact: DataTypes.BIGINT,
     insurance: DataTypes.STRING,
   },
   {
