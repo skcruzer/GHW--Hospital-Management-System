@@ -15,7 +15,7 @@ const addPatient = async function (patient) {
   return res.json();
 }
 
-const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories }) => {
+const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories[0]  }) => {
   const rowPatient = document.createElement('tr');
   const colId = document.createElement('th');
   const colFirst = document.createElement('th');
@@ -27,8 +27,10 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   const colAddress = document.createElement('th');
   const colPcp = document.createElement('th');
   const colInsurance = document.createElement('th');
+  const colMedHist = document.createElement('th');
 
 
+  
   colId.innerHTML = `${id}`
   rowPatient.classList.add(id);
   colFirst.innerHTML = `${first_name}`
@@ -41,9 +43,21 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   colPcp.innerHTML = `${primary_care_physician} (phone:${pcp_contact})`
   colInsurance.innerHTML = `${insurance}`
 
+  
+  //   const medBody = document.createElement('div');
+  //   colMedHist.innerHTML = `<p>${year}</p>
+  // <p>${condition}</p>
+  // <p>${surgeries}</p>
+  // <p>${medication}</p>
+  // <br>
+  // `
+  //   colMedHist.append(medBody);
+  
+  
             
             
-  rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance) ;
+  rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance, colMedHist) ;
+  console.log(medicalhistories[0]);
   return rowPatient;
 }
 
@@ -60,7 +74,6 @@ getPatients()
 
 //ADD patients by pressing button
 document.getElementById('addPatient').addEventListener('click', event => {
-  event.preventDefault();
 
   addPatient({
     first_name: document.getElementById('formFname').value,
@@ -91,7 +104,7 @@ const deletePatient = async function (id) {
 }
 
 document.getElementById('deletePatient').addEventListener('click', event => {
-  event.preventDefault();
+  // event.preventDefault();
 
   deletePatient(document.getElementById('formdeleId').value)
   .then(id=> {
