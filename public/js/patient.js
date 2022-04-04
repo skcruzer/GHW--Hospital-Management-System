@@ -15,7 +15,10 @@ const addPatient = async function (patient) {
   return res.json();
 }
 
-const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories[0]  }) => {
+const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, address, primary_care_physician, pcp_contact, insurance, appointments, medicalhistories }) => {
+
+  
+
   const rowPatient = document.createElement('tr');
   const colId = document.createElement('th');
   const colFirst = document.createElement('th');
@@ -29,7 +32,15 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   const colInsurance = document.createElement('th');
   const colMedHist = document.createElement('th');
 
-
+  medicalhistories.forEach(history => {
+    const medBody = document.createElement('div');
+    colMedHist.innerHTML = `<p>Condition: ${history.condition}</p>
+    <li>Year: ${history.year}</li>
+    <li>Surg: ${history.surgeries}</li>
+    <li>Med: ${history.medication}</li> 
+   <br>`
+    colMedHist.append(medBody);
+  })
   
   colId.innerHTML = `${id}`
   rowPatient.classList.add(id);
@@ -44,20 +55,13 @@ const createPatient = ({ id, first_name, last_name, sex, dob, mobile, email, add
   colInsurance.innerHTML = `${insurance}`
 
   
-  //   const medBody = document.createElement('div');
-  //   colMedHist.innerHTML = `<p>${year}</p>
-  // <p>${condition}</p>
-  // <p>${surgeries}</p>
-  // <p>${medication}</p>
-  // <br>
-  // `
-  //   colMedHist.append(medBody);
+  //  
   
   
             
             
   rowPatient.append(colId, colFirst, colLast, colSex, colDob, colMobile, colEmail, colAddress, colPcp, colInsurance, colMedHist) ;
-  console.log(medicalhistories[0]);
+  // console.log(medicalhistories[0]);
   return rowPatient;
 }
 
@@ -74,6 +78,7 @@ getPatients()
 
 //ADD patients by pressing button
 document.getElementById('addPatient').addEventListener('click', event => {
+  event.preventDefault();
 
   addPatient({
     first_name: document.getElementById('formFname').value,
