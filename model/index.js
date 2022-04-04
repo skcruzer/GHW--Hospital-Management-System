@@ -35,7 +35,7 @@ Patient.hasMany(MedicalHistory, {
 });
 
 // linking appointments to diagnoses
-Appointments.hasOne(Diagnose, {
+Appointments.hasMany(Diagnose, {
   foreignKey: "appointments_id",
 })
 Diagnose.belongsTo(Appointments, {
