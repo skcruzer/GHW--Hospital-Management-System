@@ -151,13 +151,13 @@ document.getElementById("searchBtn").addEventListener("click", (event) => {
   event.preventDefault();
 
   // //delete any previously searched patient
-  // let table2 = document.getElementById("tablebody2");
-  // if(table2.length==1) {
-  //     table2.deleteRow(0);
-  // }
-
+  
+  let length = document.getElementById('tableTest').length;
   searchPatient(document.getElementById("searchId").value)
     .then((patient) => {
+      if(length!=0) {
+        document.getElementById("tableTest").deleteRow(0);
+      }
       document.getElementById("tablebody2").append(createPatient(patient));
     })
     .catch((err) => console.error(err));
