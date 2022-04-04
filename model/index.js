@@ -42,13 +42,13 @@ Diagnose.belongsTo(Patient, {
   foreignKey: "employees_id",
 });
 
-// linking appointments  to diagnoses
+// linking appointments to diagnoses
 Diagnose.belongsTo(Appointments, {
   foreignKey: "appointments_id",
 });
 
 Appointments.belongsTo(Patient, {
-  foreignKey: "patient_id",
+  foreignKey: "patients_id",
 });
 
 
