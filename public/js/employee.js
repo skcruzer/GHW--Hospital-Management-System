@@ -34,7 +34,7 @@ const createEmployee = ({ id, email, password, title, name, sex, dob, mobile, sa
   else {
     empScheds.forEach(sched => {
       const schedBody = document.createElement('div');
-      colSchedule.innerHTML = `<p>Schedule Date: ??</p>
+      colSchedule.innerHTML = `<p>Date: ${sched.date}</p>
     <li>Start Time: ${sched.start_time}</li>
     <li>End Time: ${sched.end_time}</li>
    <br>`
