@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const seedEmployees = require("./employee-seeds");
 const seedPatients = require("./patient-seeds");
 const seedAppointments = require("./appointments-seed");
@@ -6,7 +8,6 @@ const seedSchedule = require("./empSched-seeds");
 const seedDiagnose = require("./diagnoses-seeds");
 
 const sequelize = require("../config/connection");
-const { Employee } = require("../model");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -23,8 +24,6 @@ const seedAll = async () => {
   console.log("\n----- SCHEDULE SEEDED -----\n");
   await seedDiagnose();
   console.log("\n----- DIAGNOSE SEEDED -----\n");
-
-  
 
   process.exit(0);
 };
