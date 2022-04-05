@@ -32,6 +32,7 @@
     }
 
   </style>
+  <link rel="stylesheet" href="./css/index.css" />
 </head>
 
 <body>
@@ -106,8 +107,8 @@
 
   <br><br>
   <!-- add patients -->
-  <h5>Fill the following to add new patient.</h5>
-  <form>
+  <h5>Fill the Following to Add New Patient</h5>
+  <form id="patNew">
 
     <p>
       <label for="name">First name:</label>
@@ -148,20 +149,21 @@
 
   <!-- delete patients -->
   <br><br>
-  <h5>Delete patient by Id</h5>
+  <h5>Delete Patient By ID</h5>
   <form>
-    <label for="name">Patient Id:</label>
+    <label for="name">Patient ID:</label>
     <input type="text" name="name" id="formdeleId">
     <button id="deletePatient">Delete Patient</button>
   </form>
 
   <!-- search patients -->
   <br><br>
-  <h5>Search patient by Id</h5>
+  <h5>Search Patient By ID</h5>
   <form>
-    <label for="name">Patient Id:</label>
+    <label for="name">Patient ID:</label>
     <input type="text" name="name" id="searchId">
     <button id="searchBtn">Search Patient</button>
+    <br><br>
     <div class="container">
       <div class="row">
         <div class="col">
