@@ -12,3 +12,6 @@ const logout = async () => {
 };
 
 document.getElementById("logout").addEventListener("click", logout);
+
+const dt = new Date()
+document.getElementById('dateTime').innerHTML=dt
