@@ -1,0 +1,15 @@
+
+
+@media (min-width: 360px) {
+  .table, #apptNewForm, #apptDeleteForm, #patNew, #empNew {
+  margin: auto;
+  width: 40%;
+  }
+}
+
+@media (min-width: 576px) { 
+  .table, #apptNewForm, #apptDeleteForm, #patNew, #empNew {
+    margin: auto;
+    width: 100%;
+  }
+ }
