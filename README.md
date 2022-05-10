@@ -27,7 +27,7 @@ Users can access the application by clicking on this deployed app link: https://
 
 ## License
 
-This project is licensed under the terms of the APACH_2.0.
+This project is licensed under the terms of the APACHE_2.0.
 
 ## Contributing
 
