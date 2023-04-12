@@ -23,7 +23,7 @@ npm i, npm i express, npm i mysql2 sequelize, npm i dotenv, npm i bcrypt
 
 ## Usage
 
-Users can access the application by clicking on this deployed app link: https://hosp-man-sys.herokuapp.com/. General login info is the following: email: test@gmail.com, pw: testing123
+Users can access the application by clicking on this deployed app link: https://hosp-man-system.netlify.app/dashboard.html. General login info is the following: email: test@gmail.com, pw: testing123
 
 ## License
 
